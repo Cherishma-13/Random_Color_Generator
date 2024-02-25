@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random color</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 200px;
+            margin: 100px auto;
+            line-height: 2.3rem;
+            border-radius: 10px;
+            text-align: center;
+            background-color: white;
+            box-shadow: 5px 5px 30px black;
+        }
+        #btn{
+            padding: 7px;
+            border-radius: 10px;
+        }
+        #para{
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="btn" >Change Color</button>
+        <p id="para">#</p>
+    </div>
+    <script>
+        let para=document.getElementById('para');
+        let btn=document.getElementById('btn');
+        let color;
+        let generate=()=>{
+            color='#';
+            let hexa='0123456789ABCDEF';
+            for(let i=0;i<6;i++){
+                color+=hexa[Math.floor(Math.random()*16)];
+            }
+            return color;
+        };
+        btn.addEventListener('click',()=>{
+            document.body.style.backgroundColor=generate();
+            // btn.style.backgroundColor=color;
+            para.innerHTML=color;
+        });
+    </script>
+</body>
+</html>
